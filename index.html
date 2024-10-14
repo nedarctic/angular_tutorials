@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <title>Angular JS Tutorials</title>
+    </head>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table>
+            <tr>
+                <th ng-click="orderByMe('brand')">Brand</th>
+                <th ng-click="orderByMe('model')">Model</th>
+            </tr>
+            <tr ng-repeat="x in flagshipPhones">
+                <td>{{x.brand}}</td>
+                <td>{{x.model}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.filter();
+        app.controller("myCtrl", ($scope) => {
+            $scope.flagshipPhones = [
+                {brand: "Samsung", model: "S24"},
+                {brand: "iPhone", model: "iPhone 16 Pro Max"},
+                {brand: "Google Pixel", model: "Google Pixel 9 Pro"},
+                {brand: "Huawei", model: "Huawei Pura 70 Ultra"},
+                {brand: "Oppo", model: "Oppo Reno 12"},
+                {brand: "Vivo", model: "Vivo x200"},
+                {brand: "Xiaomi", model: "Xiaomi 14 Ultra"},
+                {brand: "Asus", model: "Asus ROG Phone 8"},
+                {brand: "Motorolla", model: "Motorola Edge 30 Ultra"},
+                {brand: "Tecno", model: "Tecno Phantom X2 Pro"},
+                {brand: "Infinix", model: "Infinix Zero 30 Ultra"},
+            ];
+            $scope.orderByMe = () => {
+                $scope.myOrder = x;
+            }
+        });
+    </script>
+</html>
